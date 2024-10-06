@@ -99,18 +99,18 @@ class BoardTest {
   void invalidMove1() {
     // given
     var board = new BoardImpl();
+    var start = new Coords('a', 0);
+    var end = new Coords('a', 1);
+    var start2 = new Coords('a', 8);
+    var end2 = new Coords('a', 9);
 
     // when
     board.setup();
 
     // then
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> board.movePiece(new Coords('a', 0), new Coords('a', 1)));
-    
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> board.movePiece(new Coords('a', 8), new Coords('a', 9)));
+    assertThrows(IllegalArgumentException.class, () -> board.movePiece(start, end));
+
+    assertThrows(IllegalArgumentException.class, () -> board.movePiece(start2, end2));
   }
 
   @Test
@@ -118,14 +118,14 @@ class BoardTest {
   void invalidMove2() {
     // given
     var board = new BoardImpl();
+    var start = new Coords('a', 3);
+    var end = new Coords('a', 4);
 
     // when
     board.setup();
 
     // then
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> board.movePiece(new Coords('a', 3), new Coords('a', 4)));
+    assertThrows(IllegalArgumentException.class, () -> board.movePiece(start, end));
   }
 
   @Test
@@ -133,13 +133,12 @@ class BoardTest {
   void invalidMove3() {
     // given
     var board = new BoardImpl();
+    var start = new Coords('a', 2);
 
     // when
     board.setup();
 
     // then
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> board.movePiece(new Coords('a', 2), new Coords('a', 2)));
+    assertThrows(IllegalArgumentException.class, () -> board.movePiece(start, start));
   }
 }

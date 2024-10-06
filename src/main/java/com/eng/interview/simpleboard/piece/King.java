@@ -21,7 +21,7 @@ public record King(Color color, boolean moved) implements Piece {
             currentPos.sw(1, board),
             currentPos.w(1, board),
             currentPos.nw(1, board)
-            // TODO Castling
+            // TODO Castling (out of scope)
             //  currentPos.e(2, board),
             //  currentPos.w(2, board)
             // note that castling is the only case where another piece can get in the way

@@ -1,13 +1,16 @@
 package com.eng.interview.simpleboard.piece;
 
-import com.eng.interview.simpleboard.api.SimpleBoard;
 import com.eng.interview.simpleboard.api.Coords;
+import com.eng.interview.simpleboard.api.SimpleBoard;
 import java.util.Set;
-import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;
 
-@UtilityClass
+final
 class PieceUtil {
+
+  private PieceUtil() {
+    throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+  }
 
   /**
    * Utility method useful to generate valid moves for a piece while we generate possible moves in a
